@@ -1,30 +1,25 @@
 "use strict";
 
 let dataSquare = {
-    x:50,
-    y:50,
-    w:80,
+    x:0,
+    y:0,
     fill:{
-        r:175,
-        g:175,
+        r:0,
+        g:20,
         b:175
     }
 }
 let dataSquare2 = {
-    x:80,
-    y:100,
-    w:80,
+    y:0,
     fill:{
-        r:170,
-        g:44,
-        b:22
+        r:20,
+        g:0,
+        b:120
     }
 }
 
 let dataSquare3 = {
-    x:200,
-    y:20,
-    w:80,
+    y:0,
     fill:{
         r:22,
         g:44,
@@ -48,7 +43,7 @@ function drawSquare1(){
     push();
     noStroke();
     fill(dataSquare.fill.r,dataSquare.fill.g,dataSquare.fill.b);
-    rect(dataSquare.x, dataSquare.y, dataSquare.w);
+    rect(dataSquare.x,dataSquare.y, width/3, height);
     pop()
 }
 
@@ -56,7 +51,7 @@ function drawSquare2(){
     push();
     noStroke();
     fill(dataSquare2.fill.r,dataSquare2.fill.g,dataSquare2.fill.b);
-    rect(dataSquare2.x, dataSquare2.y, dataSquare2.w);
+    rect(width/3, dataSquare2.y, width/3, height);
     pop()
 }
 
@@ -64,23 +59,20 @@ function drawSquare3(){
     push();
     noStroke();
     fill(dataSquare3.fill.r,dataSquare3.fill.g,dataSquare3.fill.b);
-    rect(dataSquare3.x, dataSquare3.y, dataSquare3.w);
-    if(dataSquare3.y >= 400){
-        dataSquare3.y = 0;
-    } else  {dataSquare3.y += 2;}
+    rect(width/3 *2, dataSquare3.y, width/3, height);
     pop()
 }
 
-function mousePressed(){
-    if (mousePressed){
-    dataSquare.x = mouseX;
-    dataSquare.y = mouseY;
-    }
-}
+// function mousePressed(){
+//     if (mousePressed){
+//     dataSquare.x = mouseX;
+//     dataSquare.y = mouseY;
+//     }
+// }
 
-function keyPressed(){
-    if (key == ' '){ //this means space bar
-    dataSquare2.x = mouseX;
-    dataSquare2.y = mouseY;
-  }  
-}
+// function keyPressed(){
+//     if (key == ' '){ //this means space bar
+//     dataSquare2.x = mouseX;
+//     dataSquare2.y = mouseY;
+//   }  
+// }
