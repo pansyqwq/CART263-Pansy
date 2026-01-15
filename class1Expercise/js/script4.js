@@ -76,3 +76,17 @@ function drawSquare3(){
 //     dataSquare2.y = mouseY;
 //   }  
 // }
+
+if (mouseX >= 0 && mouseX <= width/3){
+    dataSquare.fill.r = 0;
+    dataSquare.fill.g = 0;
+    dataSquare.fill.b = 0;
+} else if (mouseX >= width/3 && mouseX <= width/3*2){
+    dataSquare2.fill.r = 0;
+    dataSquare2.fill.g = 0;
+    dataSquare2.fill.b = 0;
+} else if (mouseX >= width/3*2 && mouseX <= width){
+    dataSquare3.fill.r = 0;
+    dataSquare3.fill.g = 0;
+    dataSquare3.fill.b = 0;
+}
