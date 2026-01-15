@@ -5,7 +5,6 @@ let dataEllipse = {
     y:50,
     w:80,
     h:80,
-    color:"#800000",
 
     fill:{
         r:175,
@@ -32,12 +31,12 @@ function drawEllipse(){
     pop();
 
     push()
-    fill(dataEllipse.color);
+    fill(dataEllipse.fill.r-75,dataEllipse.fill.g-75, dataEllipse.fill.b-75);
     ellipse(dataEllipse.x+20,dataEllipse.y+80,dataEllipse.w+40,dataEllipse.h+50);
     pop()
 
     push()
-    fill(dataEllipse.color);
+    fill(dataEllipse.fill.r-125,dataEllipse.fill.g-125, dataEllipse.fill.b-125);
     ellipse(dataEllipse.x+60,dataEllipse.y+120,dataEllipse.w+10,dataEllipse.h+150);
     pop()
 
