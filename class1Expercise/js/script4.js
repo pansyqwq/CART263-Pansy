@@ -4,26 +4,26 @@ let dataSquare = {
     x:0,
     y:0,
     fill:{
-        r:0,
-        g:20,
-        b:175
+        r:27,
+        g:227,
+        b:184
     }
 }
 let dataSquare2 = {
     y:0,
     fill:{
-        r:20,
-        g:0,
-        b:120
+        r:27,
+        g:210,
+        b:227
     }
 }
 
 let dataSquare3 = {
     y:0,
     fill:{
-        r:22,
-        g:44,
-        b:90
+        r:27,
+        g:67,
+        b:227
     }
 }
 /**
@@ -38,6 +38,7 @@ function draw() {
     drawSquare1();
     drawSquare2();
     drawSquare3();
+    hover();
 }
 function drawSquare1(){
     push();
@@ -77,16 +78,37 @@ function drawSquare3(){
 //   }  
 // }
 
+function hover(){
 if (mouseX >= 0 && mouseX <= width/3){
-    dataSquare.fill.r = 0;
-    dataSquare.fill.g = 0;
-    dataSquare.fill.b = 0;
-} else if (mouseX >= width/3 && mouseX <= width/3*2){
-    dataSquare2.fill.r = 0;
-    dataSquare2.fill.g = 0;
-    dataSquare2.fill.b = 0;
-} else if (mouseX >= width/3*2 && mouseX <= width){
-    dataSquare3.fill.r = 0;
-    dataSquare3.fill.g = 0;
-    dataSquare3.fill.b = 0;
+    dataSquare.fill.r = 255;
+    dataSquare.fill.g = 255;
+    dataSquare.fill.b = 255;
+} else {
+    dataSquare.fill.r = 27;
+    dataSquare.fill.g = 227;
+    dataSquare.fill.b = 184;
 }
+
+
+
+if (mouseX >= width/3 && mouseX <= width/3*2){
+    dataSquare2.fill.r = 255;
+    dataSquare2.fill.g = 255;
+    dataSquare2.fill.b = 255;
+} else {
+    dataSquare2.fill.r = 27;
+    dataSquare2.fill.g = 210;
+    dataSquare2.fill.b = 227;
+}
+
+if (mouseX >= width/3*2 && mouseX <= width){
+    dataSquare3.fill.r = 255;
+    dataSquare3.fill.g = 255;
+    dataSquare3.fill.b = 255;
+} else {
+    dataSquare3.fill.r = 27;
+    dataSquare3.fill.g = 67;
+    dataSquare3.fill.b = 227;
+}
+}
+
