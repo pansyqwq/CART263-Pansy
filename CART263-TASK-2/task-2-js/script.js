@@ -2,7 +2,7 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log(document.querySelectorAll(".img-container")[7]);
+console.log(document.getElementsByTagName("h2")[0]);
 
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
@@ -63,14 +63,20 @@ console.log(document.querySelectorAll(".img-container")[7]);
         </div>
  */
 
-
 /*************************************** */
-/* 5A: all h2 elements */
-/* 5B: length of the list in 5A */
-/* 5C: the text content of the first element in the list from 5A */
-/***CODE */
+/* 5A: all h2 elements:  */
+/* 5B: length of the list in 5A: */
+/* 5C: the text content of the first element in the list from 5A: */
+/***CODE console.log(document.getElementsByTagName("h2"));
+ * console.log(document.getElementsByTagName("h2").length);
+ * console.log(document.getElementsByTagName("h2")[0]);
+*/
 /***OUTPUT: 
- * 
+ * {
+    "0": {}
+}
+ * 1
+ * <h2> The header of this fancy page</h2>
  */
 
 
