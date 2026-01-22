@@ -2,7 +2,7 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log(document.getElementsByTagName("h2")[0]);
+console.log(document.getElementById("parent"));
 
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
@@ -82,9 +82,27 @@ console.log(document.getElementsByTagName("h2")[0]);
 
 /*************************************** */
 /* 6: the element with id name parent */
-/***CODE */
+/***CODE console.log(document.getElementById("parent"));*/
 /***OUTPUT: 
- * 
+ * <section id="parent">
+            <div class="inner-container">
+                <div class="content-container">
+                    <div class="img-container">
+                        <img class="img-image" src="task-2-images/sixteen.png">
+                    </div>
+                    <p id="2" class="img-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+                        perspiciatis blanditiis, et
+                        laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur
+                        ducimus officiis non
+                        quasi officia sit veniam!</p>
+
+                </div>
+            </div>
+            <div class="inner-container">
+                <div class="content-container">
+                    <div class="img-container">
+                        <img class="img-image" src="task-2-images/eight.png">
+           etc
  */
 
 /*************************************** */
