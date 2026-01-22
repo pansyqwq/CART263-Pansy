@@ -5,8 +5,6 @@ function setup() {
 }
 function draw(){
     background("#2b2b2b");
-
-
     loopHorizontal(0,20,50);
     loopVertical(15,20,70);
     displayText();
