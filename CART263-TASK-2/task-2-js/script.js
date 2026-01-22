@@ -128,14 +128,13 @@ document.querySelector("p").textContent = "my new text here";
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...
 /***CODE */
-document.querySelectorAll("img")[0].setAttribute("src","task-2-images/seven.png") 
-// document.querySelectorAll(".src").classList.remove("src"); 
-// document.querySelector("p span").classList.add("change_span"); 
+document.querySelectorAll("img")[0].setAttribute("src","task-2-images/seven.png");
 
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
 replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
 /***CODE */
+document.querySelectorAll("p")[2].innerHTML = "<h2>TEST 123</h2>";
 
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
