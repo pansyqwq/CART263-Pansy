@@ -2,7 +2,8 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log(document.querySelectorAll(".inner-container"));
+console.log(document.querySelectorAll(".img-container")[7]);
+
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
@@ -55,9 +56,11 @@ console.log(document.querySelectorAll(".inner-container"));
 
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
-/***CODE */
+/***CODE console.log(document.querySelectorAll(".img-container")[7]); */
 /***OUTPUT: 
- * 
+ * <div class="img-container">
+        <img class="img-image" src="task-2-images/seventeen.png">
+        </div>
  */
 
 
