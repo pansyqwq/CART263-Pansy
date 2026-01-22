@@ -10,8 +10,6 @@ function draw(){
     loopHorizontal(0,20,50);
     loopVertical(15,20,70);
     displayText();
-    
-
 }
 
 function loopHorizontal(n, x, y){
