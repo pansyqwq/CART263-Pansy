@@ -2,7 +2,7 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log(document.querySelector("p"));
+console.log(document.querySelectorAll(".inner-container"));
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
@@ -38,9 +38,18 @@ console.log(document.querySelector("p"));
 
 /*************************************** */
 /* 3: all elements with the class inner-container */
-/***CODE */
+/***CODE console.log(document.querySelectorAll(".inner-container"));*/
 /***OUTPUT: 
- * 
+ * {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {}
+}
  */
 
 
