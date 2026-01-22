@@ -1,6 +1,8 @@
 "use strict";
 
 let r,g,b;
+let state = true;
+let cellRadius = 100;
 
 function setup() {
     createCanvas(800, 800);
@@ -11,13 +13,26 @@ function draw(){
     loopHorizontal(25,25,50);
 }
 
-function loopHorizontal(x, y, r){
+function loopHorizontal(x, y, w){
     for(let i =0; i <= 9; i++){
         for(let j = 0; j <= 9; j++){
         fill(r,g,b);
-        ellipse(x+ 50*i,y +50*j,r);
+        if(state === true){
+          ellipse(x+ 50*i,y +50*2*j,w);
+          let number_row = (2*j) +1;
+          square(50*i,50*number_row,w);
+        } 
+        
+        else if (state === false){
+          square(50*i,50*2*j,w);
+          let number_row = (2*j) +1;
+          ellipse(x+50*i,y+50*number_row,w);
+        }
+        console.log(state);
+        console.log(j);
         }
     }
+
 }
 
 function changeColor(){
@@ -29,5 +44,12 @@ function changeColor(){
 function keyPressed(){
     if (key == ' '){
         changeColor();
+    }
+}
+function mouseClicked(){
+    if (state === true){
+        state = false
+    } else {
+        state = true;
     }
 }
