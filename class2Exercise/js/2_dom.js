@@ -1,5 +1,5 @@
 //controlling when to on load, here we r loading when the window appears
-window.onload = setup
+window.onclick= setup //window onclick runs it until the mouse clicks
 
 function setup(){
     // console.log(document.getElementById("two").parentElement.children[1].innerHTML="<p>I was changed</p>");
@@ -16,7 +16,7 @@ function setup(){
 
 let newDivTwo = document.createElement("div");
 newDivTwo.classList.add("square_shape");
-newDivTwo.innerHTML = " <p>NEW ELEMENT TWO </p>";
+newDivTwo.innerHTML = " <p> NEW ELEMENT TWO </p>";
 newDivTwo.style.backgroundColor = "yellow";
 newDivTwo.querySelector("p").style.color = "black"
 
