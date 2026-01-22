@@ -2,7 +2,8 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log(document.getElementById("parent"));
+document.querySelector("p").textContent = "my new text here";
+
 
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
@@ -113,15 +114,23 @@ console.log(document.getElementById("parent"));
 /*** START PART TWO MODIFY */ 
 /*************************************** */
 /* 1: Select the first paragraph and replace the text within the paragraph... */
-/***CODE */
+/***CODE
+ * document.querySelector("p").textContent = "my new text here";
+ */
 /*************************************** */
 /* 2: Select all elements in the HTML that have the class name content-container
  and change the background color ... of first and second ...*/
-/***CODE */
+
+/***CODE  
+ * document.querySelectorAll(".content-container")[0].style.backgroundColor= "#db8215ff";
+ document.querySelectorAll(".content-container")[1].style.backgroundColor= "#e383daff";*/
 
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...
 /***CODE */
+document.querySelectorAll("img")[0].setAttribute("src","task-2-images/seven.png") 
+// document.querySelectorAll(".src").classList.remove("src"); 
+// document.querySelector("p span").classList.add("change_span"); 
 
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
