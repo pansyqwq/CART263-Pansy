@@ -2,12 +2,23 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log("we are a go!")
+console.log(document.getElementsByTagName("p"));
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
-/***CODE */
+/***CODE console.log(document.getElementsByTagName("p"));*/
 /***OUTPUT: 
+ * {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {}
+}
  * 
  */
 
