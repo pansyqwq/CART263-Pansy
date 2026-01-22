@@ -2,7 +2,7 @@ window.onload = setup;
 
 /** function setup */
 function setup(){
-console.log(document.getElementsByTagName("p"));
+console.log(document.querySelector("p"));
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
@@ -25,9 +25,14 @@ console.log(document.getElementsByTagName("p"));
 
 /*************************************** */
 /* 2: only the first paragraph element */
-/***CODE */
+/***CODE console.log(document.querySelector("p"));*/
 /***OUTPUT: 
- * 
+ * <p id="1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et
+                laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus
+                officiis non
+                quasi officia sit veniam!
+            </p>
  */
 
 
