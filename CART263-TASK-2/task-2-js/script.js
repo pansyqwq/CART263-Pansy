@@ -186,18 +186,18 @@ passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 
 
-let allPTagsThree = document.querySelectorAll("p");
-console.log(allPTagsThree);
-function customCreateElement(parent){
-    let NewParagraph = document.createElement("p");
-    NewParagraph.textContent = "using create Element";
-    NewParagraph.style.backgroundColor = "green";
-    NewParagraph.style.color = "white";
-    parent.appendChild(NewParagraph);
-};
-for (let i = 0; i < allPTagsThree.length; i++) { 
-  customCreateElement(allPTagsThree[i]);
-}
+// let allPTagsThree = document.querySelectorAll("p");
+// console.log(allPTagsThree);
+// function customCreateElement(parent){
+//     let NewParagraph = document.createElement("p");
+//     NewParagraph.textContent = "using create Element";
+//     NewParagraph.style.backgroundColor = "green";
+//     NewParagraph.style.color = "white";
+//     parent.appendChild(NewParagraph);
+// };
+// for (let i = 0; i < allPTagsThree.length; i++) { 
+//   customCreateElement(allPTagsThree[i]);
+// }
 
 
 
