@@ -230,11 +230,32 @@ passing the current allPTagsThree element as the parent with each iteration.*/
     otherwise lat it have the content `ODD`.*/
 
 /***CODE */
-
+function customNewBoxCreate(parent){ 
+  let newDiv = document.createElement("div");
+  newDiv.classList.add("testDiv");
+  parent.appendChild(newDiv);
+  return newDiv;
+}
+let gridParent = document.querySelector("#new-grid");
+let cellSize = 30;
+   for(let i =0; i<=9; i++){
+        for(let j=0; j<=9; j++){
+            let returnedDiv = customNewBoxCreate(gridParent);
+            returnedDiv.style.left = (j * cellSize) + "px";
+            returnedDiv.style.top = (i * cellSize) + "px";
+        }
+    }
+console.log(document.getElementsByClassName("testDiv"));
 
 /***EXPLANATION::
+ * the console log has a hundred elements because we made a 10 *10 grids in the for loop, and the function was called 10*10=100 times, which creates us 100 testDiv element
  * 
- * 
+ * let newDiv = document.createElement("div");
+  newDiv.classList.add("testDiv"); adding a new div element under class testdiv.
+  adding elements in the newDiv as the last child to the parent element
+
+  return newDiv allow us to use it outside of the function
+
  */
 
 /*************************************** */
