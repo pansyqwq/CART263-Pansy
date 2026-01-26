@@ -255,6 +255,10 @@ console.log(document.getElementsByClassName("testDiv"));
   adding elements in the newDiv as the last child to the parent element
 
   return newDiv allow us to use it outside of the function
+  let gridParent = document.querySelector("#new-grid"); finds the element name new-grid and stores it in a variable
+
+  create grids out of for loop.  +"px" was needed because we need the css to recognize it's for pixels
+
 
  */
 
