@@ -24,6 +24,4 @@ window.onload = function () {
         this.appendChild(pointDiv); // we are adding this new pointDiv as the child of the drawbox
 
     }
-
-
 };
