@@ -9,6 +9,8 @@ body{
     position:relative;
 
   }
+
+  /* when u select something by id, we use the # */
   #top-layer{
     top:0;
     left:1vw;
