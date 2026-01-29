@@ -32,6 +32,8 @@ body{
 div:hover{
     cursor: pointer;
 }
+
+/* the . means select the element by class */
   .intro-section{
     background-color: rgba(214, 110, 239,1.0);
     padding:10px;
@@ -116,7 +118,9 @@ div:hover{
 
   }
   #bubbleButton:hover{
+    /* change the color of the text */
     color:rgb(158, 153, 163);
+    /* change the color of the background */
     background: white;
 
   }
