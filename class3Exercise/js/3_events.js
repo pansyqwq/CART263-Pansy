@@ -40,8 +40,13 @@ function setup() {
         this.setAttribute("custom-bool","active"); // no longer trigger it after the first click
         console.log("is inactive");
         console.log(this.id)
+        this.style.opacity = 0.5;// the opacity including the text will decrease
       }
-      this.style.opacity = 0.5;// the opacity including the text will decrease
+      else {
+        this.setAttribute("custom-bool","inactive");
+         this.style.opacity = 1.0;
+      }
+     
     });
   });
 
