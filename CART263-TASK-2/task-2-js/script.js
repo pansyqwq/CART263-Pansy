@@ -237,7 +237,7 @@ function customNewBoxCreate(parent){
   return newDiv;
 }
 let gridParent = document.querySelector("#new-grid");
-let cellSize = 30;
+let cellSize = 40;
    for(let i =0; i<=9; i++){
         for(let j=0; j<=9; j++){
             let returnedDiv = customNewBoxCreate(gridParent);
