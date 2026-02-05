@@ -34,6 +34,8 @@ function setup() {
 
   let Selection = document.querySelectorAll(".mouseclick-active-section"); // use. as selecting class, need to use querySelecterall
 
+  
+
   Selection.forEach(element => {
     element.addEventListener("click", function (e) { // the call back function
       if (this.getAttribute("custom-bool") === "inactive") {
