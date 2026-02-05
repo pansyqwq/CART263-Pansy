@@ -4,6 +4,17 @@ window.onload = function () {
     let turbo = false;
 
 
+    // window.setInterval(addTextRecur, 1000);
+    // function addTextRecur() {
+    //     let parent = document.getElementById("boxB");
+    //     parent.innerHTML += " NEW TEXT TO APPEAR ";
+    // }
+    window.setInterval(moveBoxB, 20);
+    function moveBoxB() {
+        document.getElementById("boxB").style.left =
+            parseInt(document.getElementById("boxB").style.left) + fastSpeedX + "px"; // movement of the box using recurrence
+    }
+
     window.addEventListener("keydown", function (event) {
         //this.document.querySelector("#textContainer").textContent +=`${event.key}`;
         if (event.key === "ArrowRight") {
@@ -22,12 +33,12 @@ window.onload = function () {
             // we r setting the left side to this new string, which is the original + speed. 
         }
         if (event.key === "ArrowLeft") {
-               if (turbo) {
+            if (turbo) {
                 document.getElementById("boxA").style.left =
                     parseInt(document.getElementById("boxA").style.left) - fastSpeedX + "px";
             } else {
                 document.getElementById("boxA").style.left =
-                    parseInt(document.getElementById("boxA").style.left) -speedX + "px";
+                    parseInt(document.getElementById("boxA").style.left) - speedX + "px";
             }
             // document.getElementById("boxA").style.left =
             //     parseInt(document.getElementById("boxA").style.left) - speedX + "px";
