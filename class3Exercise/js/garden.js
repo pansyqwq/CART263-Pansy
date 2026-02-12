@@ -4,7 +4,7 @@ window.onload = function () {
         // An array to store the individual flowers
         flowers: [],
         // How many flowers in the garden
-        numFlowers: 20,
+        numFlowers: 200,
         grass: {
             grassColor: {
                 r: 120,
