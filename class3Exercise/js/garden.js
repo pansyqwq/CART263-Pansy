@@ -80,6 +80,4 @@ window.onload = function () {
     }
 
     createAndRenderTheGarden();
-
-
 }
