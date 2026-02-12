@@ -38,35 +38,48 @@ window.onload = function () {
         },
     }
     function createAndRenderTheGarden() {
-    /* note how we use dot notation....*/
-    //sky
-    garden.sky.skyDiv.classList.add("sky"); // adds the sky class to it
-    //changing bg color of that div
-    garden.sky.skyDiv.style.background = `rgb( 
+        /* note how we use dot notation....*/
+        //sky
+        garden.sky.skyDiv.classList.add("sky"); // adds the sky class to it
+        //changing bg color of that div
+        garden.sky.skyDiv.style.background = `rgb( 
         ${garden.sky.skyColor.r},
         ${garden.sky.skyColor.g},
         ${garden.sky.skyColor.b}
         )`;
-        document.getElementsByTagName("main")[0].appendChild(garden.sky.skyDiv);
+        document.getElementsByTagName("main")[0].appendChild(garden.sky.skyDiv);// adding the sky to the element has tag name main
 
 
-    //sun - IN the sky
-    garden.sun.sunDiv.classList.add("sun");
-    garden.sun.sunDiv.style.background = `rgb(
+        //sun - IN the sky
+        garden.sun.sunDiv.classList.add("sun");
+        garden.sun.sunDiv.style.background = `rgb(
         ${garden.sun.sunColor.r},
         ${garden.sun.sunColor.g},
         ${garden.sun.sunColor.b}
         )`;
-        document.getElementsByClassName("sky")[0].appendChild(garden.sun.sunDiv);
+        document.getElementsByClassName("sky")[0].appendChild(garden.sun.sunDiv);// adding the sky to the element that has class name sky
 
-    //grass
-    garden.grass.grassDiv.classList.add("grass");
-    garden.grass.grassDiv.style.background = `rgb(
+        //grass
+        garden.grass.grassDiv.classList.add("grass");
+        garden.grass.grassDiv.style.background = `rgb(
         ${garden.grass.grassColor.r},
         ${garden.grass.grassColor.g},
         ${garden.grass.grassColor.b}
         )`;
         document.getElementsByTagName("main")[0].appendChild(garden.grass.grassDiv);
-  }
-  createAndRenderTheGarden();
+
+        // add numFlowers at one time
+        for (let i = 0; i < garden.numFlowers; i++) {
+            garden.flowers.push(createFlower());
+        }
+
+        for (let i = 0; i < garden.flowers.length; i++) {
+            renderFlower(garden.flowers[i]);
+
+        }
+    }
+
+    createAndRenderTheGarden();
+
+
 }
