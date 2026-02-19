@@ -25,18 +25,7 @@ window.onload = function () {
             //the sky element
             skyDiv: document.createElement("div"),
         },
-
-        /*sun object */
-        sun: {
-            sunColor: {
-                r: 240,
-                g: 206,
-                b: 83,
-            },
-            //the sun element
-            sunDiv: document.createElement("div"),
-        },
-    }
+    };
     function createAndRenderTheGarden() {
         /* note how we use dot notation....*/
         //sky
@@ -50,14 +39,21 @@ window.onload = function () {
         document.getElementsByTagName("main")[0].appendChild(garden.sky.skyDiv);// adding the sky to the element has tag name main
 
 
-        //sun - IN the sky
-        garden.sun.sunDiv.classList.add("sun");
-        garden.sun.sunDiv.style.background = `rgb(
-        ${garden.sun.sunColor.r},
-        ${garden.sun.sunColor.g},
-        ${garden.sun.sunColor.b}
-        )`;
-        document.getElementsByClassName("sky")[0].appendChild(garden.sun.sunDiv);// adding the sky to the element that has class name sky
+        // //sun - IN the sky
+        // garden.sun.sunDiv.classList.add("sun");
+        // garden.sun.sunDiv.style.background = `rgb(
+        // ${garden.sun.sunColor.r},
+        // ${garden.sun.sunColor.g},
+        // ${garden.sun.sunColor.b}
+        // )`;
+        // document.getElementsByClassName("sky")[0].appendChild(garden.sun.sunDiv);// adding the sky to the element that has class name sky
+        let sun = new Sun(10, 10, { r: 240, g: 206, b: 83 })
+        window.addEventListener("keydown", function handleKeyDown(e) {
+            //call the handleKeyDown method of class
+            sun.handleKeyDownInSUn(e);
+        });
+        sun.renderSun();
+
 
         //grass
         garden.grass.grassDiv.classList.add("grass");
