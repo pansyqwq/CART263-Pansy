@@ -1,7 +1,8 @@
 class Flower {
-    constructor(x,y,size,stemLength,petalColor) {
+    constructor(x, y, size, stemLength, petalColor) {
         // We write instructions to set up a Flower here
         // Position and size information
+        //everytime er call the constructor, we create a new flower
         this.x = x;
         this.y = y;
         this.size = size;
@@ -10,6 +11,22 @@ class Flower {
         this.petalThickness = 8;
         this.flowerStemDiv = document.createElement("div");
         this.flowerPetalDiv = document.createElement("div");
+
+        this.flowerStemDiv.addEventListener("click", growStem);//only calls the console when we click on the stem
+        let self = this;
+        function growStem(e) {
+            console.log(self);
+
+            self.stemLength = self.stemLength + 10;
+
+            //update the actual div...
+            self.flowerStemDiv.style.height = self.stemLength + "px";
+            self.flowerStemDiv.style.top = self.y - self.stemLength + "px";
+
+            // and also the petal element needs to move up
+            self.flowerPetalDiv.style.top =
+            self.y - self.stemLength - self.size / 2 + "px";
+        }
 
         // Color information
         this.stemColor = {
