@@ -10,6 +10,8 @@ window.onload = function () {
 		);
 	}
 	add_elements_to_dom(arrayOfShapes_One, allRows[0]);
+
+	//if I want to remap the array in different shape
 	function mapArraysShape(arrayOfShapes, row) {
 		// MAP ONE
 		let arrayOfShapesNew = arrayOfShapes.map(changeShape);
@@ -22,31 +24,32 @@ window.onload = function () {
 			)
 		}
 	};
-	function mapArraysColor(arrayOfShapes,row) {
-    // MAP TWO
-    let arrayOfShapesNew = arrayOfShapes.map(changeColor);
-    add_elements_to_dom(arrayOfShapesNew, row);
-  
+	function mapArraysColor(arrayOfShapes, row) {
+		// MAP TWO
+		let arrayOfShapesNew = arrayOfShapes.map(changeColor);
+		add_elements_to_dom(arrayOfShapesNew, row);
 
-    function changeColor(el){
-        //take red color
-        let newColor = {r:el.color.r, g:125, b:255}
-        return (
-        /* need to make a copy */
-        new CustomShape(el.x, el.y+200, el.shapeClass,el.customShapeClass,newColor)
-        )}
-    }
- 
+		//is I want to change the color in the array
+		function changeColor(el) {
+			//take red color
+			let newColor = { r: el.color.r, g: 125, b: 255 }
+			return (
+				/* need to make a copy */
+				new CustomShape(el.x, el.y + 200, el.shapeClass, el.customShapeClass, newColor) //use new color instead of el.color
+			)//el.y + 200 prints a row below
+		}
+	}
+
 	document
 		.querySelector("#mapButtonA")
 		.addEventListener("click", function () {
-			mapArraysShape(arrayOfShapes_One, allRows[0])
+			mapArraysShape(arrayOfShapes_One, allRows[0])//change shape
 		});
 	document
-    .querySelector("#mapButtonB")
-    .addEventListener("click",  function() {
-      mapArraysColor(arrayOfShapes_One, allRows[0])
-    });
+		.querySelector("#mapButtonB")
+		.addEventListener("click", function () {
+			mapArraysColor(arrayOfShapes_One, allRows[0])//change color
+		});
 
 	//INIT TWO:
 	//INIT THREE
