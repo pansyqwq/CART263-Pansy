@@ -52,6 +52,67 @@ window.onload = function () {
 		});
 
 	//INIT TWO:
+	let cshape = "";
+	let arrayOfShapes_Two = []
+	for (let i = 0; i < 16; i++) {
+		let color = { r: 255 - i * 10, g: 50, b: 100 };
+		if (i % 3 === 0) cshape = "circle"; //%  takes the remainder, if the remainder =0 then it will be circle
+		else cshape = "rectangle";//if the remainder is not 0 then it will be a square
+		arrayOfShapes_Two.push(
+			new CustomShape((i + 1) * 55, 50, "shape", cshape, color),
+		);
+	}
+	add_elements_to_dom(arrayOfShapes_Two, allRows[1]);
+
+	function filterArraysXPos(arrayOfShapes, row) {
+		// FILTER ONE
+		let filteredArray = arrayOfShapes.filter(greater_posX);
+
+		function greater_posX(el) {
+			return (
+				(el.x > 200 && el.x < 400)// if the x position is greater than 200, it will pass the filter
+			)
+		}
+		add_elements_to_dom(filteredArray, row);
+
+		//then we can map - to change the y :)
+		let arrayOfShapesYChange = filteredArray.map(
+			function (el) {
+				return (new CustomShape(el.x, el.y + 100, el.shapeClass, el.customShapeClass, el.color))
+
+			});
+		console.log(filteredArray)
+		//update
+		add_elements_to_dom(arrayOfShapesYChange, row);
+	}
+
+	function filterArraysByShape(arrayOfShapes, row) {
+		// FILTER ONE
+		let filterArraysShape = arrayOfShapes.filter(shape_filter);
+
+		function shape_filter(el) {
+			return (
+				(el.customShapeClass === 'circle') // only the circle can pass the filter
+			)
+		}
+
+		//then we can map - to change the y :)
+		let arrayOfShapesNew = filterArraysShape.map(
+			function (el) {
+				return (new CustomShape(el.x, el.y + 200, el.shapeClass, el.customShapeClass, el.color))
+
+			});
+		add_elements_to_dom(arrayOfShapesNew, row);
+	}
+	document
+		.querySelector("#filterButtonA")
+		.addEventListener("click", function () { filterArraysXPos(arrayOfShapes_Two, allRows[1]) });
+	
+	document
+      .querySelector("#filterButtonB")
+      .addEventListener("click", function(){filterArraysByShape(arrayOfShapes_Two, allRows[1])});
+
+
 	//INIT THREE
 	//INIT FOUR
 
