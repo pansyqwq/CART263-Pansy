@@ -1,7 +1,7 @@
 window.onload = goFetch;
 async function goFetch() { //async function allows multiple function running on the same time
   try {//try what ever is in here
-    let response = await fetch('files/tests.json'); //if we use fetch, it will return error if it doesn't run. fetch does, connect to internet and access this file and store it in json file
+    let response = await fetch('../JsonExercise/files/tests.json'); //if we use fetch, it will return error if it doesn't run. fetch does, connect to internet and access this file and store it in json file
 
     let parsedResultJS = await response.json();
     console.log(parsedResultJS)//using async and await, make the loading of the link working on the back ground so it won't block everything else
