@@ -2,6 +2,18 @@
 
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'//allow us to load 3d models
+const gltfLoader = new GLTFLoader();
+
+let gltfModel = null;
+
+  try {
+  gltfModel = await gltfLoader.loadAsync("model/Fox/glTF/Fox.gltf");
+  addAndRun(gltfModel)
+
+} catch (error) {
+  console.log(error.message);
+}
 
 
 // canvas
@@ -9,13 +21,14 @@ const canvas = document.querySelector("canvas#three-ex");
 const scene = new THREE.Scene();
 
 //lights
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5)
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5) //enviroment light
 scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight(0xffffff, 50)
+const pointLight = new THREE.PointLight(0xffffff, 50)// color all white, intensity 50
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
+pointLight.castShadow= true;
 scene.add(pointLight);
 
 //sizes
@@ -54,16 +67,21 @@ plane.rotation.x = - Math.PI * 0.5
 plane.position.y = - 0.65
 
 scene.add(plane)
+addAndRun(gltfModel);
+function addAndRun(loadedObj) {
+    console.log(loadedObj);
+    let foxModel = loadedObj.scene.children[0]
+    scene.add(foxModel);
+    foxModel.scale.x = 0.5;
+    foxModel.scale.y = 0.5;
+    foxModel.scale.z = 0.5;
+window.requestAnimationFrame(animate);
 
-window.requestAnimationFrame(animate)
-
-function animate()
-{
-
-    // Update controls
-    controls.update()
-    // Render
-    renderer.render(scene, camera)
-    window.requestAnimationFrame(animate)
+    function animate() {
+        // Update controls
+        controls.update();
+        // Render
+        renderer.render(scene, camera);
+        window.requestAnimationFrame(animate);
+    }
 }
-
