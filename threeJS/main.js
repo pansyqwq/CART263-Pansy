@@ -4,7 +4,7 @@ import * as THREE from 'three';
 //SCENE
 //All Three.js scenes are rendered inside an html canvas element. This is why we have one setup in our html page :) 
 // The scene is like a container. You place your objects, models, particles, lights, etc. in it, and at some point, you will ask Three.js to render that scene. To create a scene, we use the Scene class.
-const scene = new THREE.Scene() 
+const scene = new THREE.Scene()
 
 //A: the geometry
 const geometry = new THREE.BoxGeometry(1, 1, 1)//3d dimension of the cube box
@@ -13,7 +13,7 @@ const material = new THREE.MeshBasicMaterial({ color: 0x800080 }) //the 3d model
 //C: put together
 const mesh = new THREE.Mesh(geometry, material) //we r creating a new mesh and i'm giving it the geometry and material
 //D: ADD TO THE SCENE
-scene.add(mesh) 
+scene.add(mesh)
 
 const mesh_2 = new THREE.Mesh(geometry, material)
 scene.add(mesh_2)
@@ -62,7 +62,7 @@ camera.position.z = 3
 // You can use it to rotate the camera toward an object, orientate a cannon to face an enemy, or move the character's eyes to an object. 
 //need to be after camera 
 camera.lookAt(new THREE.Vector3(0, - 1, 0))
-  //or
+//or
 // camera.lookAt(mesh_2.position)
 
 //Access the Canvas
@@ -74,6 +74,8 @@ const renderer = new THREE.WebGLRenderer({
 //give it the size
 renderer.setSize(sizes.width, sizes.height)
 
+
+
 //TURN ON AXES HELPER
 //https://threejs.org/docs/?q=Axes#AxesHelper
 const axesHelper = new THREE.AxesHelper(1)
@@ -83,7 +85,35 @@ axesHelper.position.x = -1;
 axesHelper.position.y = -1;
 
 //render:
-renderer.render(scene, camera)
+// renderer.render(scene, camera)
+
+let elapsedTime = 0
+//To adapt the animation to the framerate, we need to know how much time it's been since the last frame: 
+// There is a variable that is passed automatically into the requestAnimationFrame() that contained the time in ms since the program was loaded (like millis in p5). 
+// You can then simply use that variable to calculate the time passed since the last frame.. 
+// You can then use this value to rotate the object.
+window.requestAnimationFrame(animate)
+function animate(timer) {
+    let deltaTime = timer - elapsedTime;//making the animation the same rate on different device
+    elapsedTime = timer //update  new elapsedTime
+    mesh.rotation.x += 0.001 * deltaTime
+    mesh.rotation.y += 0.001 * deltaTime
+
+
+
+
+    // Update objects -> elapsed time increases ...
+    mesh_2.position.x = Math.cos(elapsedTime / 100)
+    mesh_2.position.y = Math.sin(elapsedTime / 100)
+
+
+
+    camera.position.x = Math.cos(elapsedTime / 900)
+    camera.position.y = Math.sin(elapsedTime / 800)
+
+    renderer.render(scene, camera)// put the rendering inside the animation frame to render it every frame
+    window.requestAnimationFrame(animate)
+}
 
 
 
