@@ -1,37 +1,51 @@
 // library ref: because we are loading a module
 import * as THREE from 'three';
 
+// We need to very briefly introduce textures here - NOTE: there is alot more to this topic: here we ONLY discuss the loading of a texture - not the different types, how to cover, wrap, place, apply filters etc....
+// Textures, as you probably know, are images that will cover the surface of your geometries. Many types of textures can have different effects on the appearance of your geometry. To load the texture, you need the path to the image file, and then to load the file:we will use the inbuilt Three.js object: the TextureLoader. 
+const loader = new THREE.TextureLoader();
+
+const water_texture = await loader.loadAsync( 'textures/Ice002_1K-JPG_Color.jpg' );
+//need to ensure that the textures are encoded correctly - mapping the colors correctly.
+water_texture.colorSpace = THREE.SRGBColorSpace;
+
+
+
 //SCENE
 //All Three.js scenes are rendered inside an html canvas element. This is why we have one setup in our html page :) 
 // The scene is like a container. You place your objects, models, particles, lights, etc. in it, and at some point, you will ask Three.js to render that scene. To create a scene, we use the Scene class.
 const scene = new THREE.Scene() 
 
-//A: the geometry
-const geometry = new THREE.BoxGeometry(1, 1, 1)//3d dimension of the cube box
-//B: the material
-const material = new THREE.MeshBasicMaterial({ color: 0x800080 }) //the 3d model needs a material, material defines how the object reflects the light
-//C: put together
-const mesh = new THREE.Mesh(geometry, material) //we r creating a new mesh and i'm giving it the geometry and material
-//D: ADD TO THE SCENE
-scene.add(mesh) 
+const material = new THREE.MeshBasicMaterial({
+    map: water_texture// map the texture
+})
 
-const mesh_2 = new THREE.Mesh(geometry, material)
-scene.add(mesh_2)
-mesh_2.position.x = 1.5
-mesh_2.position.y = 1.25
-mesh_2.position.z = -1
 
-//scaling lets u deform the object
-mesh.scale.x = 2
-mesh.scale.y = 0.25
-mesh.scale.z = 0.5
+// material.color = new THREE.Color('#ad86dd') 
+//or
+material.color = new THREE.Color('rgba(130, 252, 250, 1)') // it's multiplying the color on top
+material.transparent = true
+material.opacity = 0.5// opacity
 
-// Rotation is a little more complicated than position and scale. There are two ways of handling a rotation. You can use the more clear rotation property, but you can also use the less obvious quaternion property. 
-// Three.js supports both, and updating one will automatically update the other. It's just a matter of which one you prefer. We will only go over standard rotation. 
-// The rotation property also has x, y, and z properties, but instead of a Vector3, it's a Euler. 
-// When you change the x, y, and z properties of a Euler, you can imagine putting a stick through your object's center in the axis's direction and then rotating that object on that stick. The value of these rotations is expressed in radians
-mesh.rotation.x = Math.PI * 0.25 //1/8 of a circle, pi * 0.25
-mesh.rotation.y = Math.PI * 0.25
+
+const sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5, 32, 32),
+    material
+)
+sphere.position.x = - 1.5//give the sphere a position
+
+const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(1, 1),
+    material
+)
+
+const torus = new THREE.Mesh(
+    new THREE.TorusGeometry(0.5, 0.3, 16, 32),
+    material
+)
+torus.position.x = 1.5
+
+scene.add(sphere, plane, torus)//we add all three to the scene
 
 
 
@@ -54,6 +68,7 @@ scene.add(camera)
 //To move the camera backward, we need to provide a positive value to that property:
 //positive 3 means towards u 
 //need to set camera position before rendering
+camera.position.x = -3
 camera.position.z = 3
 
 
@@ -61,9 +76,9 @@ camera.position.z = 3
 // The object will automatically rotate its -z axis toward the target you provided. No complicated maths needed. 
 // You can use it to rotate the camera toward an object, orientate a cannon to face an enemy, or move the character's eyes to an object. 
 //need to be after camera 
-camera.lookAt(new THREE.Vector3(0, - 1, 0))
+
   //or
-// camera.lookAt(mesh_2.position)
+camera.lookAt(plane.position)
 
 //Access the Canvas
 const canvas = document.querySelector('canvas#three-ex')
